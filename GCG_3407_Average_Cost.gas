@@ -1,0 +1,1197 @@
+Program.Sub.ScreenSU.Start
+gui.SS_Form2..create
+gui.SS_Form2..caption("Average Cost Report")
+gui.SS_Form2..size(6160,5910)
+gui.SS_Form2..position(0,0)
+gui.SS_Form2..event(unload,Unload)
+gui.SS_Form2..alwaysontop(False)
+gui.SS_Form2..fontname("Arial")
+gui.SS_Form2..fontsize(8)
+gui.SS_Form2..forecolor(0)
+gui.SS_Form2..fontstyle(,,,,)
+gui.SS_Form2..BackColor(-2147483633)
+gui.SS_Form2..controlbox(True)
+gui.SS_Form2..maxbutton(False)
+gui.SS_Form2..minbutton(False)
+gui.SS_Form2..mousepointer(0)
+gui.SS_Form2..moveable(True)
+gui.SS_Form2..sizeable(False)
+gui.SS_Form2..ShowInTaskBar(True)
+gui.SS_Form2..titlebar(True)
+gui.SS_Form2.lbl_dtpFrom.create(label,"From",True,1800,200,1,100,135,True,0,Arial,8,-2147483633,0)
+gui.SS_Form2.dtpFrom.create(datepicker)
+gui.SS_Form2.dtpFrom.visible(True)
+gui.SS_Form2.dtpFrom.size(1800,345)
+gui.SS_Form2.dtpFrom.zorder(0)
+gui.SS_Form2.dtpFrom.position(100,335)
+gui.SS_Form2.dtpFrom.enabled(True)
+gui.SS_Form2.dtpFrom.checkbox(False)
+gui.SS_Form2.lbl_dtpTo.create(label,"To",True,1800,200,1,1985,135,True,0,Arial,8,-2147483633,0)
+gui.SS_Form2.dtpTo.create(datepicker)
+gui.SS_Form2.dtpTo.visible(True)
+gui.SS_Form2.dtpTo.size(1800,345)
+gui.SS_Form2.dtpTo.zorder(0)
+gui.SS_Form2.dtpTo.position(1985,335)
+gui.SS_Form2.dtpTo.enabled(True)
+gui.SS_Form2.dtpTo.checkbox(False)
+gui.SS_Form2.lbl_txtPartFrom.create(label,"Beginning Part",True,1800,200,1,100,850,True,0,Arial,8,-2147483633,0)
+gui.SS_Form2.txtPartFrom.create(textbox,"",True,1800,330,0,100,1050,True,0,Arial,8,16777215,1)
+gui.SS_Form2.cmd_txtPartFrom.create(button)
+gui.SS_Form2.cmd_txtPartFrom.caption("^")
+gui.SS_Form2.cmd_txtPartFrom.visible(True)
+gui.SS_Form2.cmd_txtPartFrom.size(330,330)
+gui.SS_Form2.cmd_txtPartFrom.zorder(0)
+gui.SS_Form2.cmd_txtPartFrom.position(1985,1050)
+gui.SS_Form2.cmd_txtPartFrom.enabled(True)
+gui.SS_Form2.cmd_txtPartFrom.fontname("Arial")
+gui.SS_Form2.cmd_txtPartFrom.fontsize(8)
+gui.SS_Form2.cmd_txtPartFrom.event(click,Browser_From)
+gui.SS_Form2.lbl_txtPartTo.create(label,"Ending Part",True,1800,200,1,2455,850,True,0,Arial,8,-2147483633,0)
+gui.SS_Form2.txtPartTo.create(textbox,"",True,1800,330,0,2455,1050,True,0,Arial,8,16777215,1)
+gui.SS_Form2.cmd_txtPartTo.create(button)
+gui.SS_Form2.cmd_txtPartTo.caption("^")
+gui.SS_Form2.cmd_txtPartTo.visible(True)
+gui.SS_Form2.cmd_txtPartTo.size(330,330)
+gui.SS_Form2.cmd_txtPartTo.zorder(0)
+gui.SS_Form2.cmd_txtPartTo.position(4340,1050)
+gui.SS_Form2.cmd_txtPartTo.enabled(True)
+gui.SS_Form2.cmd_txtPartTo.fontname("Arial")
+gui.SS_Form2.cmd_txtPartTo.fontsize(8)
+gui.SS_Form2.cmd_txtPartTo.event(click,Browser_To)
+gui.SS_Form2.lvwPart.create(listview)
+gui.SS_Form2.lvwPart.view(3)
+gui.SS_Form2.lvwPart.addlistviewcolumn("Key",0,0)
+gui.SS_Form2.lvwPart.addlistviewcolumn("Beginning Part",2705,0)
+gui.SS_Form2.lvwPart.addlistviewcolumn("Ending Part",2705,0)
+gui.SS_Form2.lvwPart.visible(True)
+gui.SS_Form2.lvwPart.size(5810,2000)
+gui.SS_Form2.lvwPart.zorder(0)
+gui.SS_Form2.lvwPart.position(100,1550)
+gui.SS_Form2.lvwPart.enabled(True)
+gui.SS_Form2.lvwPart.fontname("Arial")
+gui.SS_Form2.lvwPart.fontsize(8)
+gui.SS_Form2.lvwPart.event(itemclick,lvwpart_click)
+gui.SS_Form2.cmd_lvwPartAdd.create(button)
+gui.SS_Form2.cmd_lvwPartAdd.caption("Add")
+gui.SS_Form2.cmd_lvwPartAdd.visible(True)
+gui.SS_Form2.cmd_lvwPartAdd.size(1000,330)
+gui.SS_Form2.cmd_lvwPartAdd.zorder(0)
+gui.SS_Form2.cmd_lvwPartAdd.position(4810,1050)
+gui.SS_Form2.cmd_lvwPartAdd.enabled(True)
+gui.SS_Form2.cmd_lvwPartAdd.fontname("Arial")
+gui.SS_Form2.cmd_lvwPartAdd.fontsize(8)
+gui.SS_Form2.cmd_lvwPartAdd.event(click,add)
+gui.SS_Form2.cmd_lvwPartDelete.create(button)
+gui.SS_Form2.cmd_lvwPartDelete.caption("Delete")
+gui.SS_Form2.cmd_lvwPartDelete.visible(True)
+gui.SS_Form2.cmd_lvwPartDelete.size(1000,330)
+gui.SS_Form2.cmd_lvwPartDelete.zorder(0)
+gui.SS_Form2.cmd_lvwPartDelete.position(100,3635)
+gui.SS_Form2.cmd_lvwPartDelete.enabled(True)
+gui.SS_Form2.cmd_lvwPartDelete.fontname("Arial")
+gui.SS_Form2.cmd_lvwPartDelete.fontsize(8)
+gui.SS_Form2.cmd_lvwPartDelete.event(click,Delete)
+gui.SS_Form2.cmd_lvwPartClear.create(button)
+gui.SS_Form2.cmd_lvwPartClear.caption("Clear")
+gui.SS_Form2.cmd_lvwPartClear.visible(True)
+gui.SS_Form2.cmd_lvwPartClear.size(1000,330)
+gui.SS_Form2.cmd_lvwPartClear.zorder(0)
+gui.SS_Form2.cmd_lvwPartClear.position(1185,3635)
+gui.SS_Form2.cmd_lvwPartClear.enabled(True)
+gui.SS_Form2.cmd_lvwPartClear.fontname("Arial")
+gui.SS_Form2.cmd_lvwPartClear.fontsize(8)
+gui.SS_Form2.cmd_lvwPartClear.event(click,Clear)
+gui.SS_Form2.chkShowDetail.create(checkbox)
+gui.SS_Form2.chkShowDetail.caption("Show Detail")
+gui.SS_Form2.chkShowDetail.visible(True)
+gui.SS_Form2.chkShowDetail.size(1800,300)
+gui.SS_Form2.chkShowDetail.zorder(0)
+gui.SS_Form2.chkShowDetail.position(100,4165)
+gui.SS_Form2.chkShowDetail.enabled(True)
+gui.SS_Form2.chkShowDetail.alignment(0)
+gui.SS_Form2.chkShowDetail.fontname("Arial")
+gui.SS_Form2.chkShowDetail.fontsize(8)
+gui.SS_Form2.chkIncludeHist.create(checkbox)
+gui.SS_Form2.chkIncludeHist.caption("Include History")
+gui.SS_Form2.chkIncludeHist.visible(True)
+gui.SS_Form2.chkIncludeHist.size(1800,300)
+gui.SS_Form2.chkIncludeHist.zorder(0)
+gui.SS_Form2.chkIncludeHist.position(100,4550)
+gui.SS_Form2.chkIncludeHist.enabled(True)
+gui.SS_Form2.chkIncludeHist.alignment(0)
+gui.SS_Form2.chkIncludeHist.fontname("Arial")
+gui.SS_Form2.chkIncludeHist.fontsize(8)
+gui.SS_Form2.cmdPrint.create(button)
+gui.SS_Form2.cmdPrint.caption("Print")
+gui.SS_Form2.cmdPrint.visible(True)
+gui.SS_Form2.cmdPrint.size(1000,360)
+gui.SS_Form2.cmdPrint.zorder(0)
+gui.SS_Form2.cmdPrint.position(100,4935)
+gui.SS_Form2.cmdPrint.enabled(True)
+gui.SS_Form2.cmdPrint.fontname("Arial")
+gui.SS_Form2.cmdPrint.fontsize(8)
+gui.SS_Form2.cmdPrint.event(click,Load)
+gui.SS_Form2.dtpFrom.tabstop(true)
+gui.SS_Form2.dtpFrom.tabindex(1)
+gui.SS_Form2.dtpTo.tabstop(true)
+gui.SS_Form2.dtpTo.tabindex(2)
+gui.SS_Form2.txtPartFrom.tabstop(true)
+gui.SS_Form2.txtPartFrom.tabindex(3)
+gui.SS_Form2.cmd_txtPartFrom.tabstop(true)
+gui.SS_Form2.cmd_txtPartFrom.tabindex(4)
+gui.SS_Form2.txtPartTo.tabstop(true)
+gui.SS_Form2.txtPartTo.tabindex(5)
+gui.SS_Form2.cmd_txtPartTo.tabstop(true)
+gui.SS_Form2.cmd_txtPartTo.tabindex(6)
+gui.SS_Form2.cmd_lvwPartAdd.tabstop(true)
+gui.SS_Form2.cmd_lvwPartAdd.tabindex(7)
+gui.SS_Form2.chkShowDetail.tabstop(true)
+gui.SS_Form2.chkShowDetail.tabindex(8)
+gui.SS_Form2.chkIncludeHist.tabstop(true)
+gui.SS_Form2.chkIncludeHist.tabindex(9)
+gui.SS_Form2.cmdPrint.tabstop(true)
+gui.SS_Form2.cmdPrint.tabindex(10)
+
+
+gui.F_Part..create
+gui.F_Part..caption("Average Cost Report")
+gui.F_Part..size(6160,5910)
+gui.F_Part..position(0,0)
+gui.F_Part..alwaysontop(False)
+gui.F_Part..fontname("Arial")
+gui.F_Part..fontsize(8)
+gui.F_Part..forecolor(0)
+gui.F_Part..fontstyle(,,,,)
+gui.F_Part..BackColor(-2147483633)
+gui.F_Part..controlbox(True)
+gui.F_Part..maxbutton(True)
+gui.F_Part..minbutton(True)
+gui.F_Part..mousepointer(0)
+gui.F_Part..moveable(True)
+gui.F_Part..sizeable(True)
+gui.F_Part..ShowInTaskBar(True)
+gui.F_Part..titlebar(True)
+gui.F_Part.datepicker1.create(datepicker)
+gui.F_Part.datepicker1.visible(True)
+gui.F_Part.datepicker1.size(1935,285)
+gui.F_Part.datepicker1.zorder(0)
+gui.F_Part.datepicker1.position(200,390)
+gui.F_Part.datepicker1.enabled(True)
+gui.F_Part.datepicker1.checkbox(False)
+gui.F_Part.datepicker2.create(datepicker)
+gui.F_Part.datepicker2.visible(True)
+gui.F_Part.datepicker2.size(1935,285)
+gui.F_Part.datepicker2.zorder(0)
+gui.F_Part.datepicker2.position(2600,390)
+gui.F_Part.datepicker2.enabled(True)
+gui.F_Part.datepicker2.checkbox(False)
+gui.F_Part.lblFrom.create(label,"From",True,1935,255,1,200,200,True,0,Arial,8,-2147483633,0)
+gui.F_Part.lblTo.create(label,"To",True,1935,255,1,2600,200,True,0,Arial,8,-2147483633,0)
+gui.F_Part.cmdPrint.create(button)
+gui.F_Part.cmdPrint.caption("Print")
+gui.F_Part.cmdPrint.visible(True)
+gui.F_Part.cmdPrint.size(855,375)
+gui.F_Part.cmdPrint.zorder(0)
+gui.F_Part.cmdPrint.position(200,4920)
+gui.F_Part.cmdPrint.enabled(True)
+gui.F_Part.cmdPrint.fontname("Arial")
+gui.F_Part.cmdPrint.fontsize(8)
+gui.F_Part.lvwPart.create(listview)
+gui.F_Part.lvwPart.view(3)
+gui.F_Part.lvwPart.addlistviewcolumn("Beginning Part",2010,0)
+gui.F_Part.lvwPart.addlistviewcolumn("Ending Part",2010,0)
+gui.F_Part.lvwPart.visible(True)
+gui.F_Part.lvwPart.size(4320,2100)
+gui.F_Part.lvwPart.zorder(0)
+gui.F_Part.lvwPart.position(200,2655)
+gui.F_Part.lvwPart.enabled(True)
+gui.F_Part.lvwPart.fontname("Arial")
+gui.F_Part.lvwPart.fontsize(8)
+gui.F_Part.txt1.create(textbox,"",True,2685,300,0,200,1035,True,0,Arial,8,-2147483643,1)
+gui.F_Part.txt2.create(textbox,"",True,2685,300,0,200,1590,True,0,Arial,8,-2147483643,1)
+gui.F_Part.cmdPartFrom.create(button)
+gui.F_Part.cmdPartFrom.caption("^")
+gui.F_Part.cmdPartFrom.visible(True)
+gui.F_Part.cmdPartFrom.size(390,300)
+gui.F_Part.cmdPartFrom.zorder(0)
+gui.F_Part.cmdPartFrom.position(2870,1040)
+gui.F_Part.cmdPartFrom.enabled(True)
+gui.F_Part.cmdPartFrom.fontname("Arial")
+gui.F_Part.cmdPartFrom.fontsize(8)
+gui.F_Part.cmd3.create(button)
+gui.F_Part.cmd3.caption("^")
+gui.F_Part.cmd3.visible(True)
+gui.F_Part.cmd3.size(390,300)
+gui.F_Part.cmd3.zorder(0)
+gui.F_Part.cmd3.position(2860,1590)
+gui.F_Part.cmd3.enabled(True)
+gui.F_Part.cmd3.fontname("Arial")
+gui.F_Part.cmd3.fontsize(8)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.Global.sKey.Declare(String)
+Variable.Global.iKey.Declare(Long,0)
+Variable.Global.iOrdinal.Declare(Long,0)
+Variable.UDT.uJob.Define("Job",String,"JOB")
+Variable.UDT.uJob.Define("Suffix",String,"SUFFIX")
+Variable.UDT.uJob.Define("Part",String)
+Variable.uGlobal.uJob.Declare("uJob")
+Variable.UDT.uReport.Define("Terminal",String,"TERMINAL")
+Variable.UDT.uReport.Define("Parent_Part",String,"PARENT_PART")
+Variable.UDT.uReport.Define("Job",String,"JOB")
+Variable.UDT.uReport.Define("Suffix",String,"SUFFIX")
+Variable.UDT.uReport.Define("Lower_Part",String,"PART")
+Variable.UDT.uReport.Define("Description",String,"DESCRIPTION")
+Variable.UDT.uReport.Define("Qty_Completed",Float,"QTY_COMPLETED")
+Variable.UDT.uReport.Define("Qty_Required",Float,"QTY_REQUIRED")
+Variable.UDT.uReport.Define("PP",Float,"PP")
+Variable.UDT.uReport.Define("RM",Float,"RM")
+Variable.UDT.uReport.Define("DL",Float,"DL")
+Variable.UDT.uReport.Define("OH",Float,"OH")
+Variable.UDT.uReport.Define("OS",Float,"OS")
+Variable.UDT.uReport.Define("Cost",Float,)
+Variable.uGlobal.uReport.Declare("uReport")
+Variable.Global.sPart.Declare(String)
+Variable.UDT.uPart.Define("Part",String,"PART")
+Variable.uGlobal.uPart.Declare("uPart")
+
+Variable.UDT.uSummary.Define("Terminal",String,TERMINAL)
+Variable.UDT.uSummary.Define("Parent_Part",String,PARENT_PART)
+Variable.UDT.uSummary.Define("Description",String,DESCRIPTION)
+Variable.UDT.uSummary.Define("Qty_Completed",Float,QTY_COMPLETED)
+Variable.UDT.uSummary.Define("PP",Float,PP)
+Variable.UDT.uSummary.Define("RM",Float,RM)
+Variable.UDT.uSummary.Define("DL",Float,DL)
+Variable.UDT.uSummary.Define("OH",Float,OH)
+Variable.UDT.uSummary.Define("OS",Float,OS)
+Variable.UDT.uSummary.Define("Cost",Float,COST)
+Variable.uGlobal.uSummary.Declare("uSummary")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Coded by: ERIC
+'Project Start Date: 10/26/2011
+'Quote 2752
+'Hook - Stand alone item
+
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+'Gui.SS_Form2.txtPartFrom.Text("KAL205-DCJ-7S-4RZ")
+'Gui.SS_Form2.txtPartTo.Text("KAL205-DCJ-7S-4RZ")
+'Gui.SS_Form2.dtpFrom.Value("11/15/2011")
+'Gui.SS_Form2.dtpTo.Value("11/28/2011")
+Gui.SS_Form2..Show
+
+Program.Sub.Main.End
+
+Program.Sub.Load.Start
+V.Local.sKey.Declare(String)
+V.Local.i.Declare(Long)
+V.Local.iOrd.Declare(Long)
+V.Local.sPart.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.sQuery.Declare(String)
+V.Local.dDate.Declare(Date)
+V.Local.sDateFrom.Declare(String)
+V.Local.sDateTo.Declare(String)
+V.Local.iUB.Declare(Long)
+V.Local.sMsg.Declare(String)
+V.Local.sLmsg.Declare(String)
+V.Local.sLMO.Declare(String)
+V.Local.fQtyCompleted.Declare(Float)
+V.Local.sFilePath.Declare(String)
+V.Local.sFile.Declare(String)
+V.Local.sBOM.Declare(String)
+V.Local.sBOMSeq.Declare(String)
+V.Local.bMfgChk.Declare(Boolean)
+V.Local.ia.Declare(Long)
+V.Local.bChk.Declare(Boolean)
+V.Local.fQtyOpen.Declare(Float)
+V.Local.iZ.Declare(Long)
+V.Local.iB.Declare(Long)
+V.Local.iUC.Declare(Long)
+V.Local.sLastParent.Declare(String)
+V.Local.fPP.Declare(Float)
+V.Local.fOS.Declare(Float)
+V.Local.fOH.Declare(Float)
+V.Local.fDL.Declare(Float)
+V.Local.fRM.Declare(Float)
+V.Local.bcheck.Declare(Boolean)
+V.Local.bcheck.Set(False)
+V.Local.fTotal.Declare(Float)
+V.Local.bCheckTotal.Declare(Boolean)
+V.Local.bCheckTotal.Set(False)
+V.Local.fQty.Declare(Float)
+
+F.Intrinsic.String.Concat("Delete GCG_3407_AVE_REPORT Where Terminal = '",V.Caller.Terminal,"'",V.Local.sSQL)
+F.ODBC.Connection!con.Execute(V.Local.sSQL)
+F.Intrinsic.String.Concat("Delete GCG_3407_AVE_SUMMARY Where Terminal = '",V.Caller.Terminal,"'",V.Local.sSQL)
+F.ODBC.Connection!con.Execute(V.Local.sSQL)
+
+F.Intrinsic.UI.InvokeWaitDialog("Loading...","Please Wait...")
+V.uGlobal.uSummary.Redim(-1,-1)
+V.uGlobal.uReport.Redim(-1,-1)
+V.Local.iUB.Set(-1)
+
+F.Intrinsic.Control.If(V.Screen.SS_Form2!dtpFrom.Value,>,V.Screen.SS_Form2!dtpTo.Value)
+	F.Intrinsic.UI.Msgbox("Date range is invalid.","Date Range Error")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+Gui.SS_Form2.lvwPart.RetrieveAllListItems(V.Local.sKey)
+F.Intrinsic.String.Split(V.Local.sKey,"*!*",V.Local.sKey)
+F.Intrinsic.Control.For(V.Local.i,V.Local.sKey.LBound,V.Local.sKey.UBound,1)
+	F.Intrinsic.UI.ChangeWaitStatus("Loading Part Range...",V.Local.i,V.Local.sKey.LBound,V.Local.sKey.UBound)
+	Gui.SS_Form2.lvwPart.ListItemKeyToOrdinal(V.Local.sKey(v.Local.i),V.Local.iOrd)
+	V.Local.sPart.Set(V.Screen.SS_Form2!lvwPart.ListItemTextExtended(v.Local.iOrd))
+	F.Intrinsic.String.Split(V.Local.sPart,"*!*",V.Local.sPart)
+	V.Local.dDate.Set(V.Screen.SS_Form2!dtpFrom.Value)
+	F.Intrinsic.String.Format(V.Local.dDate,"YYYY-MM-DD",V.Local.sDateFrom)
+	V.Local.dDate.Set(V.Screen.SS_Form2!dtpTo.Value)
+	F.Intrinsic.String.Format(V.Local.dDate,"YYYY-MM-DD",V.Local.sDateTo)
+
+'-------------------------------------------------FA is Top Level BOM ------------------------------------------------------------
+	'Load uPart UDT with parts found in the part range
+	F.Intrinsic.String.Concat("Select Part From V_Inventory_Mstr Where Part Between '",V.Local.sPart(1).Trim,"' and '",V.Local.sPart(2).Trim,"' and Product_line = 'FA' Order by Part",V.Local.sSQL)
+	F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSQL)
+	F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+		F.Intrinsic.Variable.LoadUDTFromRecordset("con","rst","V.uGlobal.uPart",False)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.con!rst.Close
+
+'F.Intrinsic.Debug.InvokeDebugger
+'F.Intrinsic.Debug.Stop
+'-------------------------------------------------Top Level BOMs ---------------------------------------------------------------------
+	'Loop by part and load uJob UDT with job/suffix
+	F.Intrinsic.Control.For(V.Local.ia,V.uGlobal.uPart.LBound,V.uGlobal.uPart.UBound,1)
+		F.Intrinsic.UI.ChangeWaitStatus("Loading Top Level BOM part...",V.Local.ia,V.uGlobal.uPart.LBound,V.uGlobal.uPart.UBound)
+		F.Intrinsic.String.Concat("Select * From V_JOB_HEADER Where Date_Closed Between '",V.Local.sDateFrom,"' and '",V.Local.sDateTo,"' and Part = '",V.uGlobal.uPart(v.Local.ia)!Part.Trim,"' Order By Date_Closed",V.Local.sSQL)
+		F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSQL)
+		F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+			F.Intrinsic.Control.DoUntil(V.ODBC.con!rst.EOF,=,True)
+'F.Intrinsic.Debug.Stop
+				F.Intrinsic.String.Concat("Select * from V_JOB_DETAIL Where Job = '",V.ODBC.con!rst.FieldValTrim!JOB,"' and Suffix = '",V.ODBC.con!rst.FieldValTrim!SUFFIX,"' and LMO <> 'Z' and SEQ Not Between '800000' and '999999'",V.Local.sSQL)
+				F.ODBC.Connection!con.OpenRecordsetRO("rstA",V.Local.sSQL)
+				F.Intrinsic.Control.If(V.ODBC.con!rstA.EOF,=,False)
+					V.Local.bcheck.Set(True)
+					V.Local.bCheckTotal.Set(True)
+					F.Intrinsic.Control.If(V.uGlobal.uSummary.UBound,=,-1)
+					'---------------Set first UDT uSummary ------------------------
+						V.uGlobal.uSummary.Redim(0,0)
+						V.uGlobal.uSummary!Terminal.Set(V.Caller.Terminal)
+						V.uGlobal.uSummary!Parent_Part.Set(V.uGlobal.uPart(v.Local.ia)!Part)
+						V.uGlobal.uSummary!Description.Set(V.ODBC.con!rst.FieldValTrim!Description)
+						V.uGlobal.uSummary!Qty_Completed.Set(V.ODBC.con!rst.FieldValTrim!Qty_Completed)
+						F.Intrinsic.Control.DoUntil(V.ODBC.con!rstA.EOF,=,True)
+							F.Intrinsic.Control.SelectCase(V.ODBC.con!rstA.FieldValTrim!LMO)
+							F.Intrinsic.Control.Case("O")
+								F.Intrinsic.Math.Add(V.uGlobal.uSummary!OS,V.ODBC.con!rstA.FieldValFloat!Amount_Labor,V.uGlobal.uSummary!OS)
+							F.Intrinsic.Control.Case("L")
+								F.Intrinsic.Math.Add(V.uGlobal.uSummary!OH,V.ODBC.con!rstA.FieldValFloat!AMT_OVERHEAD,V.uGlobal.uSummary!OH)
+								F.Intrinsic.Math.Add(V.uGlobal.uSummary!DL,V.ODBC.con!rstA.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uSummary!DL)
+							F.Intrinsic.Control.Case("M")
+								F.Intrinsic.String.Concat("Select * From V_INVENTORY_MSTR Where Part = '",V.ODBC.con!rstA.FieldValTrim!Part,"'",V.Local.sSQL)
+								F.ODBC.Connection!con.OpenRecordsetRO("rstB",V.Local.sSQL)
+								F.Intrinsic.Control.If(V.ODBC.con!rstB.EOF,=,False)
+									F.Intrinsic.Control.If(V.ODBC.con!rstB.FieldValTrim!Product_Line,=,"RM")
+										F.Intrinsic.Math.Add(V.uGlobal.uSummary!RM,V.ODBC.con!rstA.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uSummary!RM)
+									F.Intrinsic.Control.Else
+										F.Intrinsic.Control.If(V.ODBC.con!rstB.FieldValTrim!Product_Line,=,"PP")
+											F.Intrinsic.Math.Add(V.uGlobal.uSummary!PP,V.ODBC.con!rstA.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uSummary!PP)
+										F.Intrinsic.Control.EndIf
+									F.Intrinsic.Control.EndIf
+								F.Intrinsic.Control.EndIf
+								F.ODBC.con!rstB.Close
+							F.Intrinsic.Control.EndSelect
+							F.ODBC.con!rstA.MoveNext
+						F.Intrinsic.Control.Loop
+						V.Local.sLastParent.Set(V.uGlobal.uPart(V.Local.ia)!Part)
+					F.Intrinsic.Control.Else
+						'---- if New Part adds another row in uSummary------
+						F.Intrinsic.Control.If(V.Local.sLastParent,<>,V.uGlobal.uPart(V.Local.ia)!Part)
+							V.Local.iUB.Set(V.uGlobal.uSummary.UBound)
+							F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)
+							V.uGlobal.uSummary.RedimPreserve(V.uGlobal.uSummary.LBound,V.Local.iUB)
+							V.uGlobal.uSummary(v.Local.iUB)!Terminal.Set(V.Caller.Terminal)
+							V.uGlobal.uSummary(v.Local.iUB)!Parent_Part.Set(V.uGlobal.uPart(v.Local.ia)!Part)
+							V.uGlobal.uSummary(v.Local.iUB)!Description.Set(V.ODBC.con!rst.FieldValTrim!Description)
+							V.uGlobal.uSummary(v.Local.iUB)!Qty_Completed.Set(V.ODBC.con!rst.FieldValTrim!Qty_Completed)
+							F.Intrinsic.Control.DoUntil(V.ODBC.con!rstA.EOF,=,True)
+								F.Intrinsic.Control.SelectCase(V.ODBC.con!rstA.FieldValTrim!LMO)
+									F.Intrinsic.Control.Case("O")
+										F.Intrinsic.Math.Add(V.uGlobal.uSummary(v.Local.iUB)!OS,V.ODBC.con!rstA.FieldValFloat!Amount_Labor,V.uGlobal.uSummary(v.Local.iUB)!OS)
+									F.Intrinsic.Control.Case("L")
+										F.Intrinsic.Math.Add(V.uGlobal.uSummary(v.Local.iUB)!OH,V.ODBC.con!rstA.FieldValFloat!AMT_OVERHEAD,V.uGlobal.uSummary(v.Local.iUB)!OH)
+										F.Intrinsic.Math.Add(V.uGlobal.uSummary(v.Local.iUB)!DL,V.ODBC.con!rstA.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uSummary(v.Local.iUB)!DL)
+									F.Intrinsic.Control.Case("M")
+										F.Intrinsic.String.Concat("Select * From V_INVENTORY_MSTR Where Part = '",V.ODBC.con!rstA.FieldValTrim!Part,"'",V.Local.sSQL)
+										F.ODBC.Connection!con.OpenRecordsetRO("rstB",V.Local.sSQL)
+										F.Intrinsic.Control.If(V.ODBC.con!rstB.EOF,=,False)
+											F.Intrinsic.Control.If(V.ODBC.con!rstB.FieldValTrim!Product_Line,=,"RM")
+												F.Intrinsic.Math.Add(V.uGlobal.uSummary(v.Local.iUB)!RM,V.ODBC.con!rstA.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uSummary(v.Local.iUB)!RM)
+											F.Intrinsic.Control.Else
+												F.Intrinsic.Control.If(V.ODBC.con!rstB.FieldValTrim!Product_Line,=,"PP")
+													F.Intrinsic.Math.Add(V.uGlobal.uSummary(v.Local.iUB)!PP,V.ODBC.con!rstA.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uSummary(v.Local.iUB)!PP)
+												F.Intrinsic.Control.EndIf
+											F.Intrinsic.Control.EndIf
+										F.Intrinsic.Control.EndIf
+										F.ODBC.con!rstB.Close
+									F.Intrinsic.Control.EndSelect
+								F.ODBC.con!rstA.MoveNext
+							F.Intrinsic.Control.Loop
+'							V.Local.sLastParent.Set(V.uGlobal.uPart(V.Local.ia)!Part)
+						F.Intrinsic.Control.Else
+							'------ sums data for all jobs on top level part ------------
+							F.Intrinsic.Control.DoUntil(V.ODBC.con!rstA.EOF,=,True)
+								F.Intrinsic.Control.SelectCase(V.ODBC.con!rstA.FieldValTrim!LMO)
+									F.Intrinsic.Control.Case("O")
+										F.Intrinsic.Math.Add(V.Local.fOS,V.ODBC.con!rstA.FieldValFloat!Amount_Labor,V.Local.fOS)
+										F.Intrinsic.Math.Add(V.uGlobal.uSummary!OS,V.ODBC.con!rstA.FieldValFloat!Amount_Labor,V.uGlobal.uSummary!OS)
+									F.Intrinsic.Control.Case("L")
+										F.Intrinsic.Math.Add(V.Local.fOH,V.ODBC.con!rstA.FieldValFloat!AMT_OVERHEAD,V.Local.fOH)
+										F.Intrinsic.Math.Add(V.uGlobal.uSummary!OH,V.ODBC.con!rstA.FieldValFloat!AMT_OVERHEAD,V.uGlobal.uSummary!OH)
+										F.Intrinsic.Math.Add(V.Local.fDL,V.ODBC.con!rstA.FieldValFloat!Amount_Labor,V.Local.fDL)
+										F.Intrinsic.Math.Add(V.uGlobal.uSummary!DL,V.ODBC.con!rstA.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uSummary!DL)
+									F.Intrinsic.Control.Case("M")
+										F.Intrinsic.String.Concat("Select * From V_INVENTORY_MSTR Where Part = '",V.ODBC.con!rstA.FieldValTrim!Part,"'",V.Local.sSQL)
+										F.ODBC.Connection!con.OpenRecordsetRO("rstB",V.Local.sSQL)
+										F.Intrinsic.Control.If(V.ODBC.con!rstB.EOF,=,False)
+											F.Intrinsic.Control.If(V.ODBC.con!rstB.FieldValTrim!Product_Line,=,"RM")
+												F.Intrinsic.Math.Add(V.Local.fRM,V.ODBC.con!rstA.FieldValFloat!Amount_Labor,V.Local.fRM)
+												F.Intrinsic.Math.Add(V.uGlobal.uSummary!RM,V.ODBC.con!rstA.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uSummary!RM)
+											F.Intrinsic.Control.Else
+												F.Intrinsic.Control.If(V.ODBC.con!rstB.FieldValTrim!Product_Line,=,"PP")
+													F.Intrinsic.Math.Add(V.Local.fPP,V.ODBC.con!rstA.FieldValFloat!AMOUNT_LABOR,V.Local.fPP)
+													F.Intrinsic.Math.Add(V.uGlobal.uSummary!PP,V.ODBC.con!rstA.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uSummary!PP)
+												F.Intrinsic.Control.EndIf
+											F.Intrinsic.Control.EndIf
+										F.Intrinsic.Control.EndIf
+										F.ODBC.con!rstB.Close
+								F.Intrinsic.Control.EndSelect
+								F.ODBC.con!rstA.MoveNext
+							F.Intrinsic.Control.Loop
+							F.Intrinsic.Math.Add(V.uGlobal.uSummary!Qty_Completed.Trim,V.ODBC.con!rst.FieldValFloat!Qty_completed,V.uGlobal.uSummary!Qty_Completed.Trim)
+						F.Intrinsic.Control.EndIf
+					V.Local.sLastParent.Set(V.uGlobal.uPart(V.Local.ia)!Part)
+					F.Intrinsic.Control.EndIf
+
+'F.Intrinsic.Debug.Stop
+					F.Intrinsic.Control.If(V.uGlobal.uReport.UBound,=,-1)
+						'-------Copy first record from uSummary to uReport----------------
+						V.uGlobal.uReport.Redim(0,0)
+						V.uGlobal.uReport!Terminal.Set(V.Caller.Terminal)
+						V.uGlobal.uReport!Parent_Part.Set(V.uGlobal.uSummary!Parent_Part.Trim)
+						V.uGlobal.uReport!Job.Set(V.ODBC.con!rst.FieldValTrim!JOB)
+						V.uGlobal.uReport!Suffix.Set(V.ODBC.con!rst.FieldValTrim!SUFFIX)
+						V.uGlobal.uReport!Lower_Part.Set(V.uGlobal.uSummary!Parent_Part)
+						V.uGlobal.uReport!Description.Set(V.uGlobal.uSummary!Description)
+						V.uGlobal.uReport!Qty_Completed.Set(V.uGlobal.uSummary!Qty_Completed)
+						V.uGlobal.uReport!OS.Set(V.uGlobal.uSummary!OS)
+						V.uGlobal.uReport!OH.Set(V.uGlobal.uSummary!OH)
+						V.uGlobal.uReport!DL.Set(V.uGlobal.uSummary!DL)
+						V.uGlobal.uReport!RM.Set(V.uGlobal.uSummary!RM)
+						V.uGlobal.uReport!PP.Set(V.uGlobal.uSummary!PP)
+					F.Intrinsic.Control.Else
+						'-------adds data for record to uReport----------------
+						V.Local.iUB.Set(V.uGlobal.uReport.UBound)
+						F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)
+						V.uGlobal.uReport.RedimPreserve(V.uGlobal.uReport.LBound,V.Local.iUB)
+						V.uGlobal.uReport(v.Local.iUB)!Terminal.Set(V.Caller.Terminal)
+						V.uGlobal.uReport(v.Local.iUB)!Parent_Part.Set(V.uGlobal.uSummary!Parent_Part.Trim)
+						V.uGlobal.uReport(v.Local.iUB)!Job.Set(V.ODBC.con!rst.FieldValTrim!JOB)
+						V.uGlobal.uReport(v.Local.iUB)!Suffix.Set(V.ODBC.con!rst.FieldValTrim!SUFFIX)
+						V.uGlobal.uReport(v.Local.iUB)!Lower_Part.Set(V.uGlobal.uSummary!Parent_Part)
+						V.uGlobal.uReport(v.Local.iUB)!Description.Set(V.uGlobal.uSummary!Description)
+						V.uGlobal.uReport(v.Local.iUB)!Qty_Completed.Set(V.ODBC.con!rst.FieldValFloat!Qty_Completed)
+						V.uGlobal.uReport(v.Local.iUB)!OS.Set(V.Local.fOS.Trim)
+						V.uGlobal.uReport(v.Local.iUB)!OH.Set(V.Local.fOH.Trim)
+						V.uGlobal.uReport(v.Local.iUB)!DL.Set(V.Local.fDL.Trim)
+						V.uGlobal.uReport(v.Local.iUB)!RM.Set(V.Local.fRM.Trim)
+						V.uGlobal.uReport(v.Local.iUB)!PP.Set(V.Local.fPP.Trim)
+						V.Local.fOS.Set(0)
+						V.Local.fOH.Set(0)
+						V.Local.fDL.Set(0)
+						V.Local.fRM.Set(0)
+						V.Local.fPP.Set(0)
+
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+				F.ODBC.con!rstA.Close
+				F.ODBC.con!rst.MoveNext
+			F.Intrinsic.Control.Loop
+			F.Intrinsic.Control.If(V.Local.bCheckTotal,=,True)
+				V.Local.iUB.Set(V.uGlobal.uSummary.UBound)
+				F.Intrinsic.Math.Div(V.uGlobal.uSummary(v.Local.iUB)!OS,V.uGlobal.uSummary(v.Local.iUB)!Qty_Completed,V.uGlobal.uSummary(v.Local.iUB)!OS)
+				F.Intrinsic.Math.Div(V.uGlobal.uSummary(v.Local.iUB)!OH,V.uGlobal.uSummary(v.Local.iUB)!Qty_Completed,V.uGlobal.uSummary(v.Local.iUB)!OH)
+				F.Intrinsic.Math.Div(V.uGlobal.uSummary(v.Local.iUB)!DL,V.uGlobal.uSummary(v.Local.iUB)!Qty_Completed,V.uGlobal.uSummary(v.Local.iUB)!DL)
+				F.Intrinsic.Math.Div(V.uGlobal.uSummary(v.Local.iUB)!RM,V.uGlobal.uSummary(v.Local.iUB)!Qty_Completed,V.uGlobal.uSummary(v.Local.iUB)!RM)
+				F.Intrinsic.Math.Div(V.uGlobal.uSummary(v.Local.iUB)!PP,V.uGlobal.uSummary(v.Local.iUB)!Qty_Completed,V.uGlobal.uSummary(v.Local.iUB)!PP)
+				F.Intrinsic.Math.Add(V.uGlobal.uSummary(v.Local.iUB)!PP,V.uGlobal.uSummary(v.Local.iUB)!RM,V.uGlobal.uSummary(v.Local.iUB)!DL,V.uGlobal.uSummary(v.Local.iUB)!OH,V.uGlobal.uSummary(v.Local.iUB)!OS,V.uGlobal.uSummary(v.Local.iUB)!Cost)
+				V.Local.bCheckTotal.Set(False)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+		F.ODBC.con!rst.Close
+
+'--------------------------------------------- Lower Level Parts  ----------------------------------------
+		F.Intrinsic.Control.If(V.Local.bcheck,=,True)
+			F.Intrinsic.String.Concat(V.System.Temp,"\GSS\BOM",V.Caller.Terminal,".txt",V.Local.sFilePath)
+			F.Intrinsic.String.Concat("0",V.Ambient.Tab,V.uGlobal.uPart(v.Local.ia)!Part,V.Ambient.Tab,V.Local.sFilePath,V.Local.sFile)
+			F.Intrinsic.File.String2File(V.Local.sFilePath,V.Local.sFile)
+			F.Global.General.CallWrapperSync(410000,V.Local.sFilePath)
+			F.Intrinsic.File.File2String(V.Local.sFilePath,V.Local.sFile)
+			F.Intrinsic.String.Split(V.Local.sFile,V.Ambient.NewLine,V.Local.sFile)
+			F.Intrinsic.String.Split(V.Local.sFile,V.Ambient.Tab,V.Local.sFile)
+			F.Intrinsic.File.File2String(V.Local.sFile(3).Trim,V.Local.sBOM)
+			F.Intrinsic.String.Split(V.Local.sBOM,V.Ambient.NewLine,V.Local.sBOM)
+			F.Intrinsic.Control.For(V.Local.iB,8,V.Local.sBOM.UBound,1)
+'F.Intrinsic.Debug.InvokeDebugger
+'F.Intrinsic.Debug.Stop
+				F.Intrinsic.UI.ChangeWaitStatus("Loading Lower level BOM part..",V.Local.iB,V.Local.sBOM.LBound,V.Local.sBOM.UBound)
+				F.Intrinsic.String.Split(V.Local.sBOM(v.Local.iB),"|~|",V.Local.sBOMSeq)
+				F.Intrinsic.Control.If(V.Local.sBOM(V.Local.iB),<>,"")
+					F.Intrinsic.Control.If(V.Local.sBOMSeq(5),=,"MS")
+						F.Intrinsic.String.Concat("Select * From V_JOB_HEADER Where Date_Closed Between '",V.Local.sDateFrom,"' and '",V.Local.sDateTo,"' and Part = '",V.Local.sBOMSeq(2).Trim,"' and qty_completed > 0 Order By Date_Closed",V.Local.sSQL)
+						F.ODBC.Connection!con.OpenRecordsetRO("rstB",V.Local.sSQL)
+						F.Intrinsic.Control.If(V.ODBC.con!rstB.EOF,=,True)
+							F.ODBC.con!rstB.Close
+	'-------------------------------------------Look outside date range ------------------------------------------------------
+							F.Intrinsic.String.Concat("Select * From V_JOB_HEADER Where Date_Closed < '",V.Local.sDateFrom,"' and date_closed <> '1900-01-01' and Part = '",V.Local.sBOMSeq(2).Trim,"' and qty_completed > 0 Order By Date_Closed Asc",V.Local.sSQL)
+							F.ODBC.Connection!con.OpenRecordsetRO("rstB",V.Local.sSQL)
+							F.Intrinsic.Control.If(V.ODBC.con!rstB.EOF,=,False)
+								F.Intrinsic.String.Concat("Select * from V_JOB_DETAIL Where Job = '",V.ODBC.con!rstB.FieldValTrim!JOB,"' and Suffix = '",V.ODBC.con!rstB.FieldValTrim!Suffix,"' and LMO <> 'Z' and SEQ Not Between '800000' and '999999'",V.Local.sSQL)
+								F.ODBC.Connection!con.OpenRecordsetRO("rstC",V.Local.sSQL)
+								F.Intrinsic.Control.If(V.ODBC.con!rstC.EOF,=,False)
+									V.Local.bCheckTotal.Set(True)
+									V.Local.iUB.Set(V.uGlobal.uReport.UBound)
+									F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)
+									V.uGlobal.uReport.RedimPreserve(0,V.Local.iUB)
+									V.Local.fQtyCompleted.Set(0)
+									V.uGlobal.uReport(v.Local.iUB)!Terminal.Set(V.Caller.Terminal)
+									V.uGlobal.uReport(v.Local.iUB)!Parent_Part.Set(V.uGlobal.uPart(v.Local.ia)!Part)
+									V.uGlobal.uReport(v.Local.iUB)!Job.Set(V.ODBC.con!rstC.FieldValTrim!JOB)
+									V.uGlobal.uReport(v.Local.iUB)!Suffix.Set(V.ODBC.con!rstC.FieldValTrim!SUFFIX)
+									V.uGlobal.uReport(v.Local.iUB)!Lower_Part.Set(V.Local.sBOMSeq(2).Trim)
+									V.uGlobal.uReport(v.Local.iUB)!Description.Set(V.Local.sBOMSeq(3).Trim)
+									V.uGlobal.uReport(v.Local.iUB)!Qty_Completed.Set(V.ODBC.con!rstB.FieldValFloat!QTY_COMPLETED)
+									V.uGlobal.uReport(v.Local.iUB)!Qty_Required.Set(V.Local.sBOMSeq(9).Trim)
+									F.Intrinsic.Control.DoUntil(V.ODBC.con!rstC.EOF,=,True)
+										F.Intrinsic.Control.SelectCase(V.ODBC.con!rstC.FieldValTrim!LMO)
+											F.Intrinsic.Control.Case("O")
+												F.Intrinsic.Math.Add(V.Local.fOS,V.ODBC.con!rstC.FieldValFloat!Amount_Labor,V.Local.fOS)
+												F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.iUB)!OS,V.ODBC.con!rstC.FieldValFloat!Amount_Labor,V.uGlobal.uReport(v.Local.iUB)!OS)
+											F.Intrinsic.Control.Case("L")
+												F.Intrinsic.Math.Add(V.Local.fOH,V.ODBC.con!rstC.FieldValFloat!AMT_OVERHEAD,V.Local.fOH)
+												F.Intrinsic.Math.Add(V.Local.fDL,V.ODBC.con!rstC.FieldValFloat!Amount_Labor,V.Local.fDL)
+												F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.iUB)!OH,V.ODBC.con!rstC.FieldValFloat!AMT_OVERHEAD,V.uGlobal.uReport(v.Local.iUB)!OH)
+												F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.iUB)!DL,V.ODBC.con!rstC.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uReport(v.Local.iUB)!DL)
+											F.Intrinsic.Control.Case("M")
+												F.Intrinsic.String.Concat("Select * From V_INVENTORY_MSTR Where Part = '",V.ODBC.con!rstC.FieldValTrim!Part,"'",V.Local.sSQL)
+												F.ODBC.Connection!con.OpenRecordsetRO("rstD",V.Local.sSQL)
+												F.Intrinsic.Control.If(V.ODBC.con!rstD.EOF,=,False)
+													F.Intrinsic.Control.If(V.ODBC.con!rstD.FieldValTrim!Product_Line,=,"RM")
+														F.Intrinsic.Math.Add(V.Local.fRM,V.ODBC.con!rstC.FieldValFloat!Amount_Labor,V.Local.fRM)
+														F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.iUB)!RM,V.ODBC.con!rstC.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uReport(v.Local.iUB)!RM)
+													F.Intrinsic.Control.Else
+														F.Intrinsic.Control.If(V.ODBC.con!rstD.FieldValTrim!Product_Line,=,"PP")
+															F.Intrinsic.Math.Add(V.Local.fPP,V.ODBC.con!rstC.FieldValFloat!AMOUNT_LABOR,V.Local.fPP)
+															F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.iUB)!PP,V.ODBC.con!rstC.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uReport(v.Local.iUB)!PP)
+														F.Intrinsic.Control.EndIf
+													F.Intrinsic.Control.EndIf
+												F.Intrinsic.Control.EndIf
+											F.ODBC.con!rstD.Close
+										F.Intrinsic.Control.EndSelect
+										F.ODBC.con!rstC.MoveNext
+									F.Intrinsic.Control.Loop
+									F.ODBC.con!rstC.Close
+								F.Intrinsic.Control.EndIf
+								F.Intrinsic.Control.If(V.Local.bCheckTotal,=,True)
+									F.Intrinsic.Math.Div(V.Local.fOS,V.uGlobal.uReport(v.Local.iUB)!Qty_Completed,V.Local.fOS)
+									F.Intrinsic.Math.Div(V.Local.fOH,V.uGlobal.uReport(v.Local.iUB)!Qty_Completed,V.Local.fOH)
+									F.Intrinsic.Math.Div(V.Local.fDL,V.uGlobal.uReport(v.Local.iUB)!Qty_Completed,V.Local.fDL)
+									F.Intrinsic.Math.Div(V.Local.fRM,V.uGlobal.uReport(v.Local.iUB)!Qty_Completed,V.Local.fRM)
+									F.Intrinsic.Math.Div(V.Local.fPP,V.uGlobal.uReport(v.Local.iUB)!Qty_Completed,V.Local.fPP)
+									F.Intrinsic.Math.Add(V.Local.fOS,V.Local.fOH,V.Local.fDL,V.Local.fRM,V.Local.fPP,V.Local.fTotal)
+									F.Intrinsic.Math.Mult(V.Local.fTotal,V.Local.sBOMSeq(6),V.Local.fTotal)
+									V.Local.iUB.Set(V.uGlobal.uSummary.UBound)
+									F.Intrinsic.Math.Add(V.Local.fTotal,V.uGlobal.uSummary(v.Local.iUB)!Cost,V.uGlobal.uSummary(v.Local.iUB)!Cost)
+									V.Local.bCheckTotal.Set(False)
+								F.Intrinsic.Control.EndIf
+							F.Intrinsic.Control.EndIf
+						F.Intrinsic.Control.Else
+	'------------------------------------------finds job within date range-----------------------------------------------------------
+							F.Intrinsic.Control.DoUntil(V.ODBC.con!rstB.EOF,=,True)
+								F.Intrinsic.String.Concat("Select * from V_JOB_DETAIL Where Job = '",V.ODBC.con!rstB.FieldValTrim!JOB,"' and Suffix = '",V.ODBC.con!rstB.FieldValTrim!Suffix,"' and LMO <> 'Z' and SEQ Not Between '800000' and '999999'",V.Local.sSQL)
+								F.ODBC.Connection!con.OpenRecordsetRO("rstC",V.Local.sSQL)
+								F.Intrinsic.Control.If(V.ODBC.con!rstC.EOF,=,False)
+									V.Local.bCheckTotal.Set(True)
+									V.Local.iUB.Set(V.uGlobal.uReport.UBound)
+									F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)
+									V.uGlobal.uReport.RedimPreserve(V.uGlobal.uReport.LBound,V.Local.iUB)
+									V.Local.fQtyCompleted.Set(0)
+									V.uGlobal.uReport(v.Local.iUB)!Terminal.Set(V.Caller.Terminal)
+									V.uGlobal.uReport(v.Local.iUB)!Parent_Part.Set(V.uGlobal.uPart(v.Local.ia)!Part)
+									V.uGlobal.uReport(v.Local.iUB)!Job.Set(V.ODBC.con!rstC.FieldValTrim!JOB)
+									V.uGlobal.uReport(v.Local.iUB)!Suffix.Set(V.ODBC.con!rstC.FieldValTrim!SUFFIX)
+									V.uGlobal.uReport(v.Local.iUB)!Lower_Part.Set(V.Local.sBOMSeq(2).Trim)
+									V.uGlobal.uReport(v.Local.iUB)!Description.Set(V.Local.sBOMSeq(3).Trim)
+									V.uGlobal.uReport(v.Local.iUB)!Qty_Completed.Set(V.ODBC.con!rstB.FieldValFloat!QTY_COMPLETED)
+									V.uGlobal.uReport(v.Local.iUB)!Qty_Required.Set(V.Local.sBOMSeq(9).Trim)
+									'V.Local.fQty.Set(V.Local.sBOMSeq(6).Trim)
+									F.Intrinsic.Control.DoUntil(V.ODBC.con!rstC.EOF,=,True)
+										F.Intrinsic.Control.SelectCase(V.ODBC.con!rstC.FieldValTrim!LMO)
+											F.Intrinsic.Control.Case("O")
+												F.Intrinsic.Math.Add(V.Local.fOS,V.ODBC.con!rstC.FieldValFloat!Amount_Labor,V.Local.fOS)
+												F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.iUB)!OS,V.ODBC.con!rstC.FieldValFloat!Amount_Labor,V.uGlobal.uReport(v.Local.iUB)!OS)
+											F.Intrinsic.Control.Case("L")
+												F.Intrinsic.Math.Add(V.Local.fOH,V.ODBC.con!rstC.FieldValFloat!AMT_OVERHEAD,V.Local.fOH)
+												F.Intrinsic.Math.Add(V.Local.fDL,V.ODBC.con!rstC.FieldValFloat!Amount_Labor,V.Local.fDL)
+												F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.iUB)!OH,V.ODBC.con!rstC.FieldValFloat!AMT_OVERHEAD,V.uGlobal.uReport(v.Local.iUB)!OH)
+												F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.iUB)!DL,V.ODBC.con!rstC.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uReport(v.Local.iUB)!DL)
+											F.Intrinsic.Control.Case("M")
+												F.Intrinsic.String.Concat("Select * From V_INVENTORY_MSTR Where Part = '",V.ODBC.con!rstC.FieldValTrim!Part,"'",V.Local.sSQL)
+												F.ODBC.Connection!con.OpenRecordsetRO("rstD",V.Local.sSQL)
+												F.Intrinsic.Control.If(V.ODBC.con!rstD.EOF,=,False)
+													F.Intrinsic.Control.If(V.ODBC.con!rstD.FieldValTrim!Product_Line,=,"RM")
+														F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.iUB)!RM,V.ODBC.con!rstC.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uReport(v.Local.iUB)!RM)
+														F.Intrinsic.Math.Add(V.Local.fRM,V.ODBC.con!rstC.FieldValFloat!Amount_Labor,V.Local.fRM)
+													F.Intrinsic.Control.Else
+														F.Intrinsic.Control.If(V.ODBC.con!rstD.FieldValTrim!Product_Line,=,"PP")
+															F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.iUB)!PP,V.ODBC.con!rstC.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uReport(v.Local.iUB)!PP)
+															F.Intrinsic.Math.Add(V.Local.fPP,V.ODBC.con!rstC.FieldValFloat!AMOUNT_LABOR,V.Local.fPP)
+														F.Intrinsic.Control.EndIf
+													F.Intrinsic.Control.EndIf
+												F.Intrinsic.Control.EndIf
+												F.ODBC.con!rstD.Close
+										F.Intrinsic.Control.EndSelect
+										F.ODBC.con!rstC.MoveNext
+									F.Intrinsic.Control.Loop
+								F.ODBC.con!rstC.Close
+								F.Intrinsic.Control.EndIf
+								F.ODBC.con!rstB.MoveNext
+							F.Intrinsic.Control.Loop
+						F.Intrinsic.Control.EndIf
+						F.ODBC.con!rstB.Close
+						F.Intrinsic.Control.If(V.Local.bCheckTotal,=,True)
+							F.Intrinsic.Math.Div(V.Local.fOS,V.uGlobal.uReport(v.Local.iUB)!Qty_Completed,V.Local.fOS)
+							F.Intrinsic.Math.Div(V.Local.fOH,V.uGlobal.uReport(v.Local.iUB)!Qty_Completed,V.Local.fOH)
+							F.Intrinsic.Math.Div(V.Local.fDL,V.uGlobal.uReport(v.Local.iUB)!Qty_Completed,V.Local.fDL)
+							F.Intrinsic.Math.Div(V.Local.fRM,V.uGlobal.uReport(v.Local.iUB)!Qty_Completed,V.Local.fRM)
+							F.Intrinsic.Math.Div(V.Local.fPP,V.uGlobal.uReport(v.Local.iUB)!Qty_Completed,V.Local.fPP)
+							F.Intrinsic.Math.Add(V.Local.fOS,V.Local.fOH,V.Local.fDL,V.Local.fRM,V.Local.fPP,V.Local.fTotal)
+							F.Intrinsic.Math.Mult(V.Local.sBOMSeq(6).Trim,V.Local.fTotal,V.Local.fTotal)
+							V.Local.iUB.Set(V.uGlobal.uSummary.UBound)
+							F.Intrinsic.Math.Add(V.Local.fTotal,V.uGlobal.uSummary(v.Local.iUB)!Cost,V.uGlobal.uSummary(v.Local.iUB)!Cost)
+							V.Local.bCheckTotal.Set(False)
+						F.Intrinsic.Control.Endif
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+				V.Local.fOS.Set(0)
+				V.Local.fOH.Set(0)
+				V.Local.fDL.Set(0)
+				V.Local.fRM.Set(0)
+				V.Local.fPP.Set(0)
+			F.Intrinsic.Control.Next(V.Local.iB)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.ia)
+
+'-----------------------------------------------------------------------Include History -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		F.Intrinsic.Control.If(V.Screen.SS_Form2!chkIncludeHist.Value,=,1)
+			F.Intrinsic.Control.For(V.Local.ia,V.uGlobal.uPart.LBound,V.uGlobal.uPart.UBound,1)
+			F.Intrinsic.UI.ChangeWaitStatus("Loading Top Level BOM part...",V.Local.ia,V.uGlobal.uPart.LBound,V.uGlobal.uPart.UBound)
+			F.Intrinsic.String.Concat("Select * From V_JOB_HIST_MAST Where Date_Closed Between '",V.Local.sDateFrom,"' and '",V.Local.sDateTo,"' and Part = '",V.uGlobal.uPart(v.Local.ia)!Part.Trim,"' and qty_completed <> 0 Order By Date_Closed",V.Local.sSQL)
+			F.ODBC.Connection!con.OpenRecordsetRO("rst",V.Local.sSQL)
+			F.Intrinsic.Control.If(V.ODBC.con!rst.EOF,=,False)
+				F.Intrinsic.Control.DoUntil(V.ODBC.con!rst.EOF,=,True)
+	'F.Intrinsic.Debug.Stop
+					F.Intrinsic.String.Concat("Select * from V_JOB_HIST_DTL Where Job = '",V.ODBC.con!rst.FieldValTrim!JOB,"' and Suffix = '",V.ODBC.con!rst.FieldValTrim!SUFFIX,"' and LMO <> 'Z' and SEQ Not Between '800000' and '999999'",V.Local.sSQL)
+					F.ODBC.Connection!con.OpenRecordsetRO("rstA",V.Local.sSQL)
+					F.Intrinsic.Control.If(V.ODBC.con!rstA.EOF,=,False)
+						V.Local.bcheck.Set(True)
+						V.Local.bCheckTotal.Set(True)
+						F.Intrinsic.Control.If(V.uGlobal.uSummary.UBound,=,-1)
+						'---------------Set first UDT uSummary ------------------------
+							V.uGlobal.uSummary.Redim(0,0)
+							V.uGlobal.uSummary!Terminal.Set(V.Caller.Terminal)
+							V.uGlobal.uSummary!Parent_Part.Set(V.uGlobal.uPart(v.Local.ia)!Part)
+							V.uGlobal.uSummary!Description.Set(V.ODBC.con!rst.FieldValTrim!Description)
+							V.uGlobal.uSummary!Qty_Completed.Set(V.ODBC.con!rst.FieldValTrim!Qty_Completed)
+							F.Intrinsic.Control.DoUntil(V.ODBC.con!rstA.EOF,=,True)
+								F.Intrinsic.Control.SelectCase(V.ODBC.con!rstA.FieldValTrim!LMO)
+								F.Intrinsic.Control.Case("O")
+									F.Intrinsic.Math.Add(V.uGlobal.uSummary!OS,V.ODBC.con!rstA.FieldValFloat!Amount_Labor,V.uGlobal.uSummary!OS)
+								F.Intrinsic.Control.Case("L")
+									F.Intrinsic.Math.Add(V.uGlobal.uSummary!OH,V.ODBC.con!rstA.FieldValFloat!AMT_OVERHEAD,V.uGlobal.uSummary!OH)
+									F.Intrinsic.Math.Add(V.uGlobal.uSummary!DL,V.ODBC.con!rstA.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uSummary!DL)
+								F.Intrinsic.Control.Case("M")
+									F.Intrinsic.String.Concat("Select * From V_INVENTORY_MSTR Where Part = '",V.ODBC.con!rstA.FieldValTrim!Part,"'",V.Local.sSQL)
+									F.ODBC.Connection!con.OpenRecordsetRO("rstB",V.Local.sSQL)
+									F.Intrinsic.Control.If(V.ODBC.con!rstB.EOF,=,False)
+										F.Intrinsic.Control.If(V.ODBC.con!rstB.FieldValTrim!Product_Line,=,"RM")
+											F.Intrinsic.Math.Add(V.uGlobal.uSummary!RM,V.ODBC.con!rstA.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uSummary!RM)
+										F.Intrinsic.Control.Else
+											F.Intrinsic.Control.If(V.ODBC.con!rstB.FieldValTrim!Product_Line,=,"PP")
+												F.Intrinsic.Math.Add(V.uGlobal.uSummary!PP,V.ODBC.con!rstA.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uSummary!PP)
+											F.Intrinsic.Control.EndIf
+										F.Intrinsic.Control.EndIf
+									F.Intrinsic.Control.EndIf
+									F.ODBC.con!rstB.Close
+								F.Intrinsic.Control.EndSelect
+								F.ODBC.con!rstA.MoveNext
+							F.Intrinsic.Control.Loop
+							V.Local.sLastParent.Set(V.uGlobal.uPart(V.Local.ia)!Part)
+						F.Intrinsic.Control.Else
+							'---- if New Part adds another row in uSummary------
+							F.Intrinsic.Control.If(V.Local.sLastParent,<>,V.uGlobal.uPart(V.Local.ia)!Part)
+								V.Local.iUB.Set(V.uGlobal.uSummary.UBound)
+								F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)
+								V.uGlobal.uSummary.RedimPreserve(V.uGlobal.uSummary.LBound,V.Local.iUB)
+								V.uGlobal.uSummary(v.Local.iUB)!Terminal.Set(V.Caller.Terminal)
+								V.uGlobal.uSummary(v.Local.iUB)!Parent_Part.Set(V.uGlobal.uPart(v.Local.ia)!Part)
+								V.uGlobal.uSummary(v.Local.iUB)!Description.Set(V.ODBC.con!rst.FieldValTrim!Description)
+								V.uGlobal.uSummary(v.Local.iUB)!Qty_Completed.Set(V.ODBC.con!rst.FieldValTrim!Qty_Completed)
+								F.Intrinsic.Control.DoUntil(V.ODBC.con!rstA.EOF,=,True)
+									F.Intrinsic.Control.SelectCase(V.ODBC.con!rstA.FieldValTrim!LMO)
+										F.Intrinsic.Control.Case("O")
+											F.Intrinsic.Math.Add(V.uGlobal.uSummary(v.Local.iUB)!OS,V.ODBC.con!rstA.FieldValFloat!Amount_Labor,V.uGlobal.uSummary(v.Local.iUB)!OS)
+										F.Intrinsic.Control.Case("L")
+											F.Intrinsic.Math.Add(V.uGlobal.uSummary(v.Local.iUB)!OH,V.ODBC.con!rstA.FieldValFloat!AMT_OVERHEAD,V.uGlobal.uSummary(v.Local.iUB)!OH)
+											F.Intrinsic.Math.Add(V.uGlobal.uSummary(v.Local.iUB)!DL,V.ODBC.con!rstA.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uSummary(v.Local.iUB)!DL)
+										F.Intrinsic.Control.Case("M")
+											F.Intrinsic.String.Concat("Select * From V_INVENTORY_MSTR Where Part = '",V.ODBC.con!rstA.FieldValTrim!Part,"'",V.Local.sSQL)
+											F.ODBC.Connection!con.OpenRecordsetRO("rstB",V.Local.sSQL)
+											F.Intrinsic.Control.If(V.ODBC.con!rstB.EOF,=,False)
+												F.Intrinsic.Control.If(V.ODBC.con!rstB.FieldValTrim!Product_Line,=,"RM")
+													F.Intrinsic.Math.Add(V.uGlobal.uSummary(v.Local.iUB)!RM,V.ODBC.con!rstA.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uSummary(v.Local.iUB)!RM)
+												F.Intrinsic.Control.Else
+													F.Intrinsic.Control.If(V.ODBC.con!rstB.FieldValTrim!Product_Line,=,"PP")
+														F.Intrinsic.Math.Add(V.uGlobal.uSummary(v.Local.iUB)!PP,V.ODBC.con!rstA.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uSummary(v.Local.iUB)!PP)
+													F.Intrinsic.Control.EndIf
+												F.Intrinsic.Control.EndIf
+											F.Intrinsic.Control.EndIf
+											F.ODBC.con!rstB.Close
+										F.Intrinsic.Control.EndSelect
+									F.ODBC.con!rstA.MoveNext
+								F.Intrinsic.Control.Loop
+	'							V.Local.sLastParent.Set(V.uGlobal.uPart(V.Local.ia)!Part)
+
+							F.Intrinsic.Control.Else
+								'------ sums data for all jobs on top level part ------------
+								F.Intrinsic.Control.DoUntil(V.ODBC.con!rstA.EOF,=,True)
+									F.Intrinsic.Control.SelectCase(V.ODBC.con!rstA.FieldValTrim!LMO)
+										F.Intrinsic.Control.Case("O")
+											F.Intrinsic.Math.Add(V.Local.fOS,V.ODBC.con!rstA.FieldValFloat!Amount_Labor,V.Local.fOS)
+											F.Intrinsic.Math.Add(V.uGlobal.uSummary!OS,V.ODBC.con!rstA.FieldValFloat!Amount_Labor,V.uGlobal.uSummary!OS)
+										F.Intrinsic.Control.Case("L")
+											F.Intrinsic.Math.Add(V.Local.fOH,V.ODBC.con!rstA.FieldValFloat!AMT_OVERHEAD,V.Local.fOH)
+											F.Intrinsic.Math.Add(V.uGlobal.uSummary!OH,V.ODBC.con!rstA.FieldValFloat!AMT_OVERHEAD,V.uGlobal.uSummary!OH)
+											F.Intrinsic.Math.Add(V.Local.fDL,V.ODBC.con!rstA.FieldValFloat!Amount_Labor,V.Local.fDL)
+											F.Intrinsic.Math.Add(V.uGlobal.uSummary!DL,V.ODBC.con!rstA.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uSummary!DL)
+										F.Intrinsic.Control.Case("M")
+											F.Intrinsic.String.Concat("Select * From V_INVENTORY_MSTR Where Part = '",V.ODBC.con!rstA.FieldValTrim!Part,"'",V.Local.sSQL)
+											F.ODBC.Connection!con.OpenRecordsetRO("rstB",V.Local.sSQL)
+											F.Intrinsic.Control.If(V.ODBC.con!rstB.EOF,=,False)
+												F.Intrinsic.Control.If(V.ODBC.con!rstB.FieldValTrim!Product_Line,=,"RM")
+													F.Intrinsic.Math.Add(V.Local.fRM,V.ODBC.con!rstA.FieldValFloat!Amount_Labor,V.Local.fRM)
+													F.Intrinsic.Math.Add(V.uGlobal.uSummary!RM,V.ODBC.con!rstA.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uSummary!RM)
+												F.Intrinsic.Control.Else
+													F.Intrinsic.Control.If(V.ODBC.con!rstB.FieldValTrim!Product_Line,=,"PP")
+														F.Intrinsic.Math.Add(V.Local.fPP,V.ODBC.con!rstA.FieldValFloat!AMOUNT_LABOR,V.Local.fPP)
+														F.Intrinsic.Math.Add(V.uGlobal.uSummary!PP,V.ODBC.con!rstA.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uSummary!PP)
+													F.Intrinsic.Control.EndIf
+												F.Intrinsic.Control.EndIf
+											F.Intrinsic.Control.EndIf
+											F.ODBC.con!rstB.Close
+									F.Intrinsic.Control.EndSelect
+									F.ODBC.con!rstA.MoveNext
+								F.Intrinsic.Control.Loop
+								F.Intrinsic.Math.Add(V.uGlobal.uSummary!Qty_Completed.Trim,V.ODBC.con!rst.FieldValFloat!Qty_completed,V.uGlobal.uSummary!Qty_Completed.Trim)
+							F.Intrinsic.Control.EndIf
+						V.Local.sLastParent.Set(V.uGlobal.uPart(V.Local.ia)!Part)
+						F.Intrinsic.Control.EndIf
+
+	'F.Intrinsic.Debug.Stop
+						F.Intrinsic.Control.If(V.uGlobal.uReport.UBound,=,-1)
+							'-------Copy first record from uSummary to uReport----------------
+							V.uGlobal.uReport.Redim(0,0)
+							V.uGlobal.uReport!Terminal.Set(V.Caller.Terminal)
+							V.uGlobal.uReport!Parent_Part.Set(V.uGlobal.uSummary!Parent_Part.Trim)
+							V.uGlobal.uReport!Job.Set(V.ODBC.con!rst.FieldValTrim!JOB)
+							V.uGlobal.uReport!Suffix.Set(V.ODBC.con!rst.FieldValTrim!SUFFIX)
+							V.uGlobal.uReport!Lower_Part.Set(V.uGlobal.uSummary!Parent_Part)
+							V.uGlobal.uReport!Description.Set(V.uGlobal.uSummary!Description)
+							V.uGlobal.uReport!Qty_Completed.Set(V.uGlobal.uSummary!Qty_Completed)
+							V.uGlobal.uReport!OS.Set(V.uGlobal.uSummary!OS)
+							V.uGlobal.uReport!OH.Set(V.uGlobal.uSummary!OH)
+							V.uGlobal.uReport!DL.Set(V.uGlobal.uSummary!DL)
+							V.uGlobal.uReport!RM.Set(V.uGlobal.uSummary!RM)
+							V.uGlobal.uReport!PP.Set(V.uGlobal.uSummary!PP)
+						F.Intrinsic.Control.Else
+							'-------adds data for record to uReport----------------
+							V.Local.iUB.Set(V.uGlobal.uReport.UBound)
+							F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)
+							V.uGlobal.uReport.RedimPreserve(V.uGlobal.uReport.LBound,V.Local.iUB)
+							V.uGlobal.uReport(v.Local.iUB)!Terminal.Set(V.Caller.Terminal)
+							V.uGlobal.uReport(v.Local.iUB)!Parent_Part.Set(V.uGlobal.uSummary!Parent_Part.Trim)
+							V.uGlobal.uReport(v.Local.iUB)!Job.Set(V.ODBC.con!rst.FieldValTrim!JOB)
+							V.uGlobal.uReport(v.Local.iUB)!Suffix.Set(V.ODBC.con!rst.FieldValTrim!SUFFIX)
+							V.uGlobal.uReport(v.Local.iUB)!Lower_Part.Set(V.uGlobal.uSummary!Parent_Part)
+							V.uGlobal.uReport(v.Local.iUB)!Description.Set(V.uGlobal.uSummary!Description)
+							V.uGlobal.uReport(v.Local.iUB)!Qty_Completed.Set(V.ODBC.con!rst.FieldValFloat!Qty_Completed)
+							V.uGlobal.uReport(v.Local.iUB)!OS.Set(V.Local.fOS.Trim)
+							V.uGlobal.uReport(v.Local.iUB)!OH.Set(V.Local.fOH.Trim)
+							V.uGlobal.uReport(v.Local.iUB)!DL.Set(V.Local.fDL.Trim)
+							V.uGlobal.uReport(v.Local.iUB)!RM.Set(V.Local.fRM.Trim)
+							V.uGlobal.uReport(v.Local.iUB)!PP.Set(V.Local.fPP.Trim)
+							V.Local.fOS.Set(0)
+							V.Local.fOH.Set(0)
+							V.Local.fDL.Set(0)
+							V.Local.fRM.Set(0)
+							V.Local.fPP.Set(0)
+
+						F.Intrinsic.Control.EndIf
+					F.Intrinsic.Control.EndIf
+					F.ODBC.con!rstA.Close
+					F.ODBC.con!rst.MoveNext
+				F.Intrinsic.Control.Loop
+				F.Intrinsic.Control.If(V.Local.bCheckTotal,=,True)
+					V.Local.iUB.Set(V.uGlobal.uSummary.UBound)
+					F.Intrinsic.Math.Div(V.uGlobal.uSummary(v.Local.iUB)!OS,V.uGlobal.uSummary(v.Local.iUB)!Qty_Completed,V.uGlobal.uSummary(v.Local.iUB)!OS)
+					F.Intrinsic.Math.Div(V.uGlobal.uSummary(v.Local.iUB)!OH,V.uGlobal.uSummary(v.Local.iUB)!Qty_Completed,V.uGlobal.uSummary(v.Local.iUB)!OH)
+					F.Intrinsic.Math.Div(V.uGlobal.uSummary(v.Local.iUB)!DL,V.uGlobal.uSummary(v.Local.iUB)!Qty_Completed,V.uGlobal.uSummary(v.Local.iUB)!DL)
+					F.Intrinsic.Math.Div(V.uGlobal.uSummary(v.Local.iUB)!RM,V.uGlobal.uSummary(v.Local.iUB)!Qty_Completed,V.uGlobal.uSummary(v.Local.iUB)!RM)
+					F.Intrinsic.Math.Div(V.uGlobal.uSummary(v.Local.iUB)!PP,V.uGlobal.uSummary(v.Local.iUB)!Qty_Completed,V.uGlobal.uSummary(v.Local.iUB)!PP)
+					F.Intrinsic.Math.Add(V.uGlobal.uSummary(v.Local.iUB)!PP,V.uGlobal.uSummary(v.Local.iUB)!RM,V.uGlobal.uSummary(v.Local.iUB)!DL,V.uGlobal.uSummary(v.Local.iUB)!OH,V.uGlobal.uSummary(v.Local.iUB)!OS,V.uGlobal.uSummary(v.Local.iUB)!Cost)
+					V.Local.bCheckTotal.Set(False)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.EndIf
+			F.ODBC.con!rst.Close
+	'F.Intrinsic.Debug.Stop
+
+	'--------------------------------------------- Lower Level Parts  ----------------------------------------
+			F.Intrinsic.Control.If(V.Local.bcheck,=,True)
+				F.Intrinsic.String.Concat(V.System.Temp,"\GSS\BOM",V.Caller.Terminal,".txt",V.Local.sFilePath)
+				F.Intrinsic.String.Concat("0",V.Ambient.Tab,V.uGlobal.uPart(v.Local.ia)!Part,V.Ambient.Tab,V.Local.sFilePath,V.Local.sFile)
+				F.Intrinsic.File.String2File(V.Local.sFilePath,V.Local.sFile)
+				F.Global.General.CallWrapperSync(410000,V.Local.sFilePath)
+				F.Intrinsic.File.File2String(V.Local.sFilePath,V.Local.sFile)
+				F.Intrinsic.String.Split(V.Local.sFile,V.Ambient.NewLine,V.Local.sFile)
+				F.Intrinsic.String.Split(V.Local.sFile,V.Ambient.Tab,V.Local.sFile)
+				F.Intrinsic.File.File2String(V.Local.sFile(3).Trim,V.Local.sBOM)
+				F.Intrinsic.String.Split(V.Local.sBOM,V.Ambient.NewLine,V.Local.sBOM)
+				F.Intrinsic.Control.For(V.Local.iB,8,V.Local.sBOM.UBound,1)
+
+					F.Intrinsic.UI.ChangeWaitStatus("Loading Lower level BOM part..",V.Local.iB,V.Local.sBOM.LBound,V.Local.sBOM.UBound)
+					F.Intrinsic.String.Split(V.Local.sBOM(v.Local.iB),"|~|",V.Local.sBOMSeq)
+					F.Intrinsic.Control.If(V.Local.sBOM(V.Local.iB),<>,"")
+						F.Intrinsic.Control.If(V.Local.sBOMSeq(5),=,"MS")
+							F.Intrinsic.String.Concat("Select * From V_JOB_HIST_MAST Where Date_Closed Between '",V.Local.sDateFrom,"' and '",V.Local.sDateTo,"' and Part = '",V.Local.sBOMSeq(2).Trim,"' and qty_completed <> 0 Order By Date_Closed",V.Local.sSQL)
+							F.ODBC.Connection!con.OpenRecordsetRO("rstB",V.Local.sSQL)
+							F.Intrinsic.Control.If(V.ODBC.con!rstB.EOF,=,True)
+								F.ODBC.con!rstB.Close
+		'-------------------------------------------Look outside date range ------------------------------------------------------
+								F.Intrinsic.String.Concat("Select * From V_JOB_HIST_MAST Where Date_Closed < '",V.Local.sDateFrom,"' and Part = '",V.Local.sBOMSeq(2).Trim,"' and qty_completed <> 0 Order By Date_Closed Asc",V.Local.sSQL)
+								F.ODBC.Connection!con.OpenRecordsetRO("rstB",V.Local.sSQL)
+								F.Intrinsic.Control.If(V.ODBC.con!rstB.EOF,=,False)
+									
+										F.Intrinsic.String.Concat("Select * from V_JOB_HIST_DTL Where Job = '",V.ODBC.con!rstB.FieldValTrim!JOB,"' and Suffix = '",V.ODBC.con!rstB.FieldValTrim!Suffix,"' and LMO <> 'Z' and SEQ Not Between '800000' and '999999'",V.Local.sSQL)
+										F.ODBC.Connection!con.OpenRecordsetRO("rstC",V.Local.sSQL)
+										F.Intrinsic.Control.If(V.ODBC.con!rstC.EOF,=,False)
+											V.Local.bCheckTotal.Set(True)
+											V.Local.iUB.Set(V.uGlobal.uReport.UBound)
+											F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)
+											V.uGlobal.uReport.RedimPreserve(0,V.Local.iUB)
+											V.Local.fQtyCompleted.Set(0)
+											V.uGlobal.uReport(v.Local.iUB)!Terminal.Set(V.Caller.Terminal)
+											V.uGlobal.uReport(v.Local.iUB)!Parent_Part.Set(V.uGlobal.uPart(v.Local.ia)!Part)
+											V.uGlobal.uReport(v.Local.iUB)!Job.Set(V.ODBC.con!rstC.FieldValTrim!JOB)
+											V.uGlobal.uReport(v.Local.iUB)!Suffix.Set(V.ODBC.con!rstC.FieldValTrim!SUFFIX)
+											V.uGlobal.uReport(v.Local.iUB)!Lower_Part.Set(V.Local.sBOMSeq(2).Trim)
+											V.uGlobal.uReport(v.Local.iUB)!Description.Set(V.Local.sBOMSeq(3).Trim)
+											V.uGlobal.uReport(v.Local.iUB)!Qty_Completed.Set(V.ODBC.con!rstB.FieldValFloat!QTY_COMPLETED)
+											V.uGlobal.uReport(v.Local.iUB)!Qty_Required.Set(V.Local.sBOMSeq(9).Trim)
+											F.Intrinsic.Control.DoUntil(V.ODBC.con!rstC.EOF,=,True)
+												F.Intrinsic.Control.SelectCase(V.ODBC.con!rstC.FieldValTrim!LMO)
+													F.Intrinsic.Control.Case("O")
+														F.Intrinsic.Math.Add(V.Local.fOS,V.ODBC.con!rstC.FieldValFloat!Amount_Labor,V.Local.fOS)
+														F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.iUB)!OS,V.ODBC.con!rstC.FieldValFloat!Amount_Labor,V.uGlobal.uReport(v.Local.iUB)!OS)
+													F.Intrinsic.Control.Case("L")
+														F.Intrinsic.Math.Add(V.Local.fOH,V.ODBC.con!rstC.FieldValFloat!AMT_OVERHEAD,V.Local.fOH)
+														F.Intrinsic.Math.Add(V.Local.fDL,V.ODBC.con!rstC.FieldValFloat!Amount_Labor,V.Local.fDL)
+														F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.iUB)!OH,V.ODBC.con!rstC.FieldValFloat!AMT_OVERHEAD,V.uGlobal.uReport(v.Local.iUB)!OH)
+														F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.iUB)!DL,V.ODBC.con!rstC.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uReport(v.Local.iUB)!DL)
+													F.Intrinsic.Control.Case("M")
+														F.Intrinsic.String.Concat("Select * From V_INVENTORY_MSTR Where Part = '",V.ODBC.con!rstC.FieldValTrim!Part,"'",V.Local.sSQL)
+														F.ODBC.Connection!con.OpenRecordsetRO("rstD",V.Local.sSQL)
+														F.Intrinsic.Control.If(V.ODBC.con!rstD.EOF,=,False)
+															F.Intrinsic.Control.If(V.ODBC.con!rstD.FieldValTrim!Product_Line,=,"RM")
+																F.Intrinsic.Math.Add(V.Local.fRM,V.ODBC.con!rstC.FieldValFloat!Amount_Labor,V.Local.fRM)
+																F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.iUB)!RM,V.ODBC.con!rstC.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uReport(v.Local.iUB)!RM)
+															F.Intrinsic.Control.Else
+																F.Intrinsic.Control.If(V.ODBC.con!rstD.FieldValTrim!Product_Line,=,"PP")
+																	F.Intrinsic.Math.Add(V.Local.fPP,V.ODBC.con!rstC.FieldValFloat!AMOUNT_LABOR,V.Local.fPP)
+																	F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.iUB)!PP,V.ODBC.con!rstC.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uReport(v.Local.iUB)!PP)
+																F.Intrinsic.Control.EndIf
+															F.Intrinsic.Control.EndIf
+														F.Intrinsic.Control.EndIf
+													F.ODBC.con!rstD.Close
+												F.Intrinsic.Control.EndSelect
+												F.ODBC.con!rstC.MoveNext
+											F.Intrinsic.Control.Loop
+											F.ODBC.con!rstC.Close
+										F.Intrinsic.Control.EndIf
+
+									F.Intrinsic.Control.If(V.Local.bCheckTotal,=,True)
+										F.Intrinsic.Math.Div(V.Local.fOS,V.uGlobal.uReport(v.Local.iUB)!Qty_Completed,V.Local.fOS)
+										F.Intrinsic.Math.Div(V.Local.fOH,V.uGlobal.uReport(v.Local.iUB)!Qty_Completed,V.Local.fOH)
+										F.Intrinsic.Math.Div(V.Local.fDL,V.uGlobal.uReport(v.Local.iUB)!Qty_Completed,V.Local.fDL)
+										F.Intrinsic.Math.Div(V.Local.fRM,V.uGlobal.uReport(v.Local.iUB)!Qty_Completed,V.Local.fRM)
+										F.Intrinsic.Math.Div(V.Local.fPP,V.uGlobal.uReport(v.Local.iUB)!Qty_Completed,V.Local.fPP)
+										F.Intrinsic.Math.Add(V.Local.fOS,V.Local.fOH,V.Local.fDL,V.Local.fRM,V.Local.fPP,V.Local.fTotal)
+										F.Intrinsic.Math.Mult(V.Local.fTotal,V.Local.sBOMSeq(6),V.Local.fTotal)
+										V.Local.iUB.Set(V.uGlobal.uSummary.UBound)
+										F.Intrinsic.Math.Add(V.Local.fTotal,V.uGlobal.uSummary(v.Local.iUB)!Cost,V.uGlobal.uSummary(v.Local.iUB)!Cost)
+										V.Local.bCheckTotal.Set(False)
+									F.Intrinsic.Control.EndIf
+								F.Intrinsic.Control.EndIf
+							F.Intrinsic.Control.Else
+		'------------------------------------------finds job within date range-----------------------------------------------------------
+								F.Intrinsic.Control.DoUntil(V.ODBC.con!rstB.EOF,=,True)
+	'F.Intrinsic.Debug.Stop
+									F.Intrinsic.String.Concat("Select * from V_JOB_HIST_DTL Where Job = '",V.ODBC.con!rstB.FieldValTrim!JOB,"' and Suffix = '",V.ODBC.con!rstB.FieldValTrim!Suffix,"' and LMO <> 'Z' and SEQ Not Between '800000' and '999999'",V.Local.sSQL)
+									F.ODBC.Connection!con.OpenRecordsetRO("rstC",V.Local.sSQL)
+									F.Intrinsic.Control.If(V.ODBC.con!rstC.EOF,=,False)
+										V.Local.bCheckTotal.Set(True)
+										V.Local.iUB.Set(V.uGlobal.uReport.UBound)
+										F.Intrinsic.Math.Add(V.Local.iUB,1,V.Local.iUB)
+										V.uGlobal.uReport.RedimPreserve(V.uGlobal.uReport.LBound,V.Local.iUB)
+										V.Local.fQtyCompleted.Set(0)
+										V.uGlobal.uReport(v.Local.iUB)!Terminal.Set(V.Caller.Terminal)
+										V.uGlobal.uReport(v.Local.iUB)!Parent_Part.Set(V.uGlobal.uPart(v.Local.ia)!Part)
+										V.uGlobal.uReport(v.Local.iUB)!Job.Set(V.ODBC.con!rstC.FieldValTrim!JOB)
+										V.uGlobal.uReport(v.Local.iUB)!Suffix.Set(V.ODBC.con!rstC.FieldValTrim!SUFFIX)
+										V.uGlobal.uReport(v.Local.iUB)!Lower_Part.Set(V.Local.sBOMSeq(2).Trim)
+										V.uGlobal.uReport(v.Local.iUB)!Description.Set(V.Local.sBOMSeq(3).Trim)
+										V.uGlobal.uReport(v.Local.iUB)!Qty_Completed.Set(V.ODBC.con!rstB.FieldValFloat!QTY_COMPLETED)
+										V.uGlobal.uReport(v.Local.iUB)!Qty_Required.Set(V.Local.sBOMSeq(9).Trim)
+										'V.Local.fQty.Set(V.Local.sBOMSeq(6).Trim)
+										F.Intrinsic.Control.DoUntil(V.ODBC.con!rstC.EOF,=,True)
+											F.Intrinsic.Control.SelectCase(V.ODBC.con!rstC.FieldValTrim!LMO)
+												F.Intrinsic.Control.Case("O")
+													F.Intrinsic.Math.Add(V.Local.fOS,V.ODBC.con!rstC.FieldValFloat!Amount_Labor,V.Local.fOS)
+													F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.iUB)!OS,V.ODBC.con!rstC.FieldValFloat!Amount_Labor,V.uGlobal.uReport(v.Local.iUB)!OS)
+												F.Intrinsic.Control.Case("L")
+													F.Intrinsic.Math.Add(V.Local.fOH,V.ODBC.con!rstC.FieldValFloat!AMT_OVERHEAD,V.Local.fOH)
+													F.Intrinsic.Math.Add(V.Local.fDL,V.ODBC.con!rstC.FieldValFloat!Amount_Labor,V.Local.fDL)
+													F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.iUB)!OH,V.ODBC.con!rstC.FieldValFloat!AMT_OVERHEAD,V.uGlobal.uReport(v.Local.iUB)!OH)
+													F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.iUB)!DL,V.ODBC.con!rstC.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uReport(v.Local.iUB)!DL)
+												F.Intrinsic.Control.Case("M")
+													F.Intrinsic.String.Concat("Select * From V_INVENTORY_MSTR Where Part = '",V.ODBC.con!rstC.FieldValTrim!Part,"'",V.Local.sSQL)
+													F.ODBC.Connection!con.OpenRecordsetRO("rstD",V.Local.sSQL)
+													F.Intrinsic.Control.If(V.ODBC.con!rstD.EOF,=,False)
+														F.Intrinsic.Control.If(V.ODBC.con!rstD.FieldValTrim!Product_Line,=,"RM")
+															F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.iUB)!RM,V.ODBC.con!rstC.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uReport(v.Local.iUB)!RM)
+															F.Intrinsic.Math.Add(V.Local.fRM,V.ODBC.con!rstC.FieldValFloat!Amount_Labor,V.Local.fRM)
+														F.Intrinsic.Control.Else
+															F.Intrinsic.Control.If(V.ODBC.con!rstD.FieldValTrim!Product_Line,=,"PP")
+																F.Intrinsic.Math.Add(V.uGlobal.uReport(v.Local.iUB)!PP,V.ODBC.con!rstC.FieldValFloat!AMOUNT_LABOR,V.uGlobal.uReport(v.Local.iUB)!PP)
+																F.Intrinsic.Math.Add(V.Local.fPP,V.ODBC.con!rstC.FieldValFloat!AMOUNT_LABOR,V.Local.fPP)
+															F.Intrinsic.Control.EndIf
+														F.Intrinsic.Control.EndIf
+													F.Intrinsic.Control.EndIf
+													F.ODBC.con!rstD.Close
+											F.Intrinsic.Control.EndSelect
+											F.ODBC.con!rstC.MoveNext
+										F.Intrinsic.Control.Loop
+									F.ODBC.con!rstC.Close
+									F.Intrinsic.Control.EndIf
+									F.ODBC.con!rstB.MoveNext
+								F.Intrinsic.Control.Loop
+							F.Intrinsic.Control.EndIf
+							F.ODBC.con!rstB.Close
+							F.Intrinsic.Control.If(V.Local.bCheckTotal,=,True)
+								F.Intrinsic.Math.Div(V.Local.fOS,V.uGlobal.uReport(v.Local.iUB)!Qty_Completed,V.Local.fOS)
+								F.Intrinsic.Math.Div(V.Local.fOH,V.uGlobal.uReport(v.Local.iUB)!Qty_Completed,V.Local.fOH)
+								F.Intrinsic.Math.Div(V.Local.fDL,V.uGlobal.uReport(v.Local.iUB)!Qty_Completed,V.Local.fDL)
+								F.Intrinsic.Math.Div(V.Local.fRM,V.uGlobal.uReport(v.Local.iUB)!Qty_Completed,V.Local.fRM)
+								F.Intrinsic.Math.Div(V.Local.fPP,V.uGlobal.uReport(v.Local.iUB)!Qty_Completed,V.Local.fPP)
+								F.Intrinsic.Math.Add(V.Local.fOS,V.Local.fOH,V.Local.fDL,V.Local.fRM,V.Local.fPP,V.Local.fTotal)
+								F.Intrinsic.Math.Mult(V.Local.sBOMSeq(6).Trim,V.Local.fTotal,V.Local.fTotal)
+								V.Local.iUB.Set(V.uGlobal.uSummary.UBound)
+								F.Intrinsic.Math.Add(V.Local.fTotal,V.uGlobal.uSummary(v.Local.iUB)!Cost,V.uGlobal.uSummary(v.Local.iUB)!Cost)
+								V.Local.bCheckTotal.Set(False)
+							F.Intrinsic.Control.Endif
+						F.Intrinsic.Control.EndIf
+					F.Intrinsic.Control.EndIf
+					V.Local.fOS.Set(0)
+					V.Local.fOH.Set(0)
+					V.Local.fDL.Set(0)
+					V.Local.fRM.Set(0)
+					V.Local.fPP.Set(0)
+				F.Intrinsic.Control.Next(V.Local.iB)
+			F.Intrinsic.Control.EndIf
+			V.Local.bcheck.Set(False)
+		F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.Next(V.Local.ia)
+	F.Intrinsic.Control.CallSub(Save)
+F.Intrinsic.Control.Next(V.Local.i)
+F.Intrinsic.UI.CloseWaitDialog
+F.Intrinsic.Control.CallSub(Report)
+F.Intrinsic.Control.CallSub(Unload)
+
+Program.Sub.Load.End
+
+Program.Sub.Unload.Start
+F.ODBC.Connection!con.Close
+F.Intrinsic.Control.End
+
+Program.Sub.Unload.End
+
+Program.Sub.Browser_From.Start
+V.Local.sRet.Declare(String)
+V.Local.sCol.Declare(String)
+V.Local.sColW.Declare(String)
+V.Local.sQuery.Declare(String)
+
+F.Intrinsic.String.Split("Part*!*Location*!*Description*!*Product Line*!*Qty On Hand","*!*",V.Local.sCol)
+F.Intrinsic.String.Split("3000*!*700*!*3000*!*1000*!*1500","*!*",V.local.sColW)
+V.Local.sQuery.Set("Select Part,Location,Description,Product_Line,Qty_OnHand from V_Inventory_Mstr where Product_Line = 'FA' Order by Part asc")
+
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser("Select a Part","con",V.Local.sQuery,V.Local.sCol,V.Local.sColW,10300,7000,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.SS_Form2.txtPartFrom.Text(V.Local.sRet(0))
+	Gui.SS_Form2.txtPartTo.Text(V.Local.sRet(0))
+F.Intrinsic.Control.EndIf
+
+
+Program.Sub.Browser_From.End
+
+Program.Sub.Browser_To.Start
+V.Local.sRet.Declare(String)
+V.Local.sCol.Declare(String)
+V.Local.sColW.Declare(String)
+V.Local.sQuery.Declare(String)
+
+F.Intrinsic.String.Split("Part*!*Location*!*Description*!*Product Line*!*Qty On Hand","*!*",V.Local.sCol)
+F.Intrinsic.String.Split("3000*!*700*!*3000*!*1000*!*1500","*!*",V.local.sColW)
+V.Local.sQuery.Set("Select Part,Location,Description,Product_Line,Qty_OnHand from V_Inventory_Mstr where Product_Line = 'FA' Order by Part asc")
+
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+F.Intrinsic.UI.Browser("Select a Part","con",V.Local.sQuery,V.Local.sCol,V.Local.sColW,10300,7000,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.SS_Form2.txtPartTo.Text(V.Local.sRet(0))
+F.Intrinsic.Control.EndIf
+
+Program.Sub.Browser_To.End
+
+program.sub.lvwpart_click.start
+V.Global.sKey.Set(V.Args.ItemKey)
+
+
+program.sub.lvwpart_click.end
+
+program.sub.add.start
+V.Local.sBegPart.Declare(String)
+V.Local.sEndPart.Declare(String)
+V.Local.sRet.Declare(String)
+
+F.Intrinsic.Control.If(V.Screen.SS_Form2!txtPartFrom.Text,=,"")
+	F.Intrinsic.UI.Msgbox("Select a beginning part range","Error Message")
+	Gui.SS_Form2.txtPartFrom.SetFocus
+F.Intrinsic.Control.ElseIf(V.Screen.SS_Form2!txtPartTo.Text,=,"")
+	F.Intrinsic.UI.Msgbox("Select a ending part range","Error Message")
+	Gui.SS_Form2.txtPartTo.SetFocus
+F.Intrinsic.Control.ElseIf(V.Screen.SS_Form2!txtPartFrom.Text,>,V.Screen.SS_Form2!txtPartTo.Text)
+		F.Intrinsic.UI.Msgbox("Invalid part range.","Error Message")
+F.Intrinsic.Control.Else
+	F.Intrinsic.Math.Add(V.Global.iKey,1,V.Global.iKey)
+	Gui.SS_Form2.lvwPart.AddListItem(V.Global.iKey,V.Global.iKey)
+	Gui.SS_Form2.lvwPart.SetListItemSubItemText(V.Global.iKey,1,V.Screen.SS_Form2!txtPartFrom.Text)
+	Gui.SS_Form2.lvwPart.SetListItemSubItemText(V.Global.iKey,2,V.Screen.SS_Form2!txtPartTo.Text)
+F.Intrinsic.Control.EndIf
+
+
+program.sub.add.end
+
+Program.Sub.Clear.Start
+'Clears all in Listview box
+Gui.SS_Form2.lvwPart.ClearItems
+
+Program.Sub.Clear.End
+
+Program.Sub.Delete.Start
+V.Local.sRet.Declare(Long)
+
+'Deletes highlighted part range in listview box
+Gui.SS_Form2.lvwPart.RetrieveItemOrdinal(V.Global.sKey,V.Global.iOrdinal)
+Gui.SS_Form2.lvwPart.RemoveItem(V.Global.sKey)
+V.Global.sKey.Set("")
+
+Program.Sub.Delete.End
+
+Program.Sub.Save.Start
+V.Local.sSQL.Declare(String)
+V.Local.sQuery.Declare(String)
+
+F.Intrinsic.UI.ChangeWaitStatus("Saving data...")
+F.Intrinsic.Control.If(V.uGlobal.uReport.UBound,<>,-1)
+	F.Intrinsic.String.Concat("Select * From GCG_3407_AVE_REPORT Where Terminal = '",V.Caller.Terminal,"'",V.Local.sQuery)
+	F.ODBC.Connection!con.OpenRecordsetRW("rstZ",V.Local.sQuery)
+	F.Intrinsic.Variable.SaveUDTToRecordset("con","rstZ","V.uGlobal.uReport")
+	F.ODBC.con!rstZ.Close
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.uGlobal.uSummary.UBound,<>,-1)
+	F.Intrinsic.String.Concat("Select * From GCG_3407_AVE_SUMMARY Where Terminal = '",V.Caller.Terminal,"'",V.Local.sQuery)
+	F.ODBC.Connection!con.OpenRecordsetRW("rstY",V.Local.sQuery)
+	F.Intrinsic.Variable.SaveUDTToRecordset("con","rstY","V.uGlobal.uSummary")
+	F.ODBC.con!rstY.Close
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ExitSub
+
+
+Program.Sub.Save.End
+
+Program.Sub.Report.Start
+V.Local.sParam.Declare(String)
+V.Local.sParamVal.Declare(String)
+V.Local.iReport.Declare(Long)
+V.Local.sReportName.Declare(String)
+
+V.Local.sParam.Set("Terminal")
+V.Local.sParamVal.Set(V.Caller.Terminal)
+
+
+F.Intrinsic.Control.If(V.Screen.SS_Form2!chkShowDetail.Value,=,1)
+	'F.Intrinsic.String.Concat(V.Caller.BusintDir,"\CUSTOM\GCG_3407_Avg_Detail.rpt",V.Local.sReportName)
+	'F.Global.BI.InitializeReport("Average Cost Detail",V.Local.sReportName,V.Local.iReport)
+	F.Global.BI.GetIDFromName("GCG_3407_Avg_Detail.rpt",V.Local.iReport)
+	F.Global.BI.PrintReport(V.Local.iReport,0,V.Local.sParam,V.Local.sParamVal,"",False)
+F.Intrinsic.Control.Else
+	'F.Intrinsic.String.Concat(V.Caller.BusintDir,"\CUSTOM\GCG_3407_Avg_Summary.rpt",V.Local.sReportName)
+	'F.Global.BI.InitializeReport("Average Cost Summary",V.Local.sReportName,V.Local.iReport)
+	F.Global.BI.GetIDFromName("GCG_3407_Avg_Summary.rpt",V.Local.iReport)
+	F.Global.BI.PrintReport(V.Local.iReport,0,V.Local.sParam,V.Local.sParamVal,"",False)
+F.Intrinsic.Control.EndIf
+
+Program.Sub.Report.End
+
+Program.Sub.ScreenSS.Start
+SS_Form2{{CAPTION::Average Cost Report
+SS_Form2.CTRL{{NAME::dtpFrom\\TYPE::6\\CAPTION::From\\TABSTOP::1\\GROUP::1\\BROWSER::0\\SIZE::1
+SS_Form2.CTRL{{NAME::dtpTo\\TYPE::6\\CAPTION::To\\TABSTOP::2\\GROUP::1\\BROWSER::0\\SIZE::1
+SS_Form2.CTRL{{NAME::txtPartFrom\\TYPE::2\\CAPTION::Beginning Part\\RANGE::lvwPart\\TABSTOP::3\\GROUP::2\\BROWSER::1\\SIZE::1
+SS_Form2.CTRL{{NAME::txtPartTo\\TYPE::2\\CAPTION::Ending Part\\RANGE::lvwPart\\TABSTOP::4\\GROUP::2\\BROWSER::1\\SIZE::1
+SS_Form2.CTRL{{NAME::lvwPart\\TYPE::7\\GROUP::-1\\BROWSER::0\\SIZE::1
+SS_Form2.CTRL{{NAME::chkShowDetail\\TYPE::9\\CAPTION::Show Detail\\TABSTOP::5\\GROUP::-1\\BROWSER::0\\SIZE::1
+SS_Form2.CTRL{{NAME::chkIncludeHist\\TYPE::9\\CAPTION::Include History\\TABSTOP::6\\GROUP::-1\\BROWSER::0\\SIZE::1
+SS_Form2.CTRL{{NAME::cmdPrint\\TYPE::5\\CAPTION::Print\\TABSTOP::7\\GROUP::-1\\BROWSER::0\\SIZE::1
+
+Program.Sub.ScreenSS.End
+
